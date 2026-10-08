@@ -1,0 +1,38 @@
+{
+  "name": "screenveil",
+  "version": "0.1.0",
+  "description": "Open-source DRM for the web: images and videos that show up black in screenshots and screen recordings. Browser player + Node packager, license server and Web API.",
+  "keywords": ["drm", "eme", "widevine", "playready", "fairplay", "screenshot", "screen-recording", "content-protection", "cenc", "image-protection", "video-protection"],
+  "license": "MIT",
+  "author": "RamiMohamed12",
+  "repository": { "type": "git", "url": "git+https://github.com/RamiMohamed12/screenveil.git" },
+  "homepage": "https://github.com/RamiMohamed12/screenveil#readme",
+  "bugs": { "url": "https://github.com/RamiMohamed12/screenveil/issues" },
+  "type": "module",
+  "sideEffects": ["./dist/screenveil.global.js", "./dist/client/global.js"],
+  "exports": {
+    ".": { "types": "./dist/client/index.d.ts", "default": "./dist/client/index.js" },
+    "./server": { "types": "./dist/server/index.d.ts", "default": "./dist/server/index.js" },
+    "./global": "./dist/screenveil.global.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/client/index.js",
+  "types": "./dist/client/index.d.ts",
+  "unpkg": "./dist/screenveil.global.js",
+  "jsdelivr": "./dist/screenveil.global.js",
+  "bin": { "screenveil": "dist/cli.js" },
+  "files": ["dist", "src", "examples", "README.md", "LICENSE", "SECURITY.md", "CHANGELOG.md"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/bundle.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --test-reporter=spec \"test/*.test.ts\"",
+    "dev": "npm run build && node dist/cli.js serve --dev",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.1",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,6 @@
+node_modules/
+dist/
+screenveil-data/
+screenveil-keys/
+*.log
+.DS_Store
